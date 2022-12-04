@@ -34,5 +34,5 @@ char findCommonChar(char[] one, char[] two){
     }
     
   }
-  return 0;
+  throw new Exception("Must be a common character!");
 }

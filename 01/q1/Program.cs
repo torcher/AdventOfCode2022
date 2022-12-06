@@ -1,5 +1,5 @@
 ﻿long largestCalories = 0;
-using var sr = new StreamReader("input.txt");
+using var sr = new StreamReader("../input.txt");
 long currentCalories = 0;
 while(!sr.EndOfStream){
     var nextLine = await sr.ReadLineAsync();

@@ -44,16 +44,21 @@ while(!sr.EndOfStream){
   }
 }
 
+long SPACE_NEEDED = 30000000;
+long SPACE_TOTAL = 70000000;
 
-long sizeOfSmallerDirectories = 0;
+long spaceToClear = SPACE_NEEDED - (SPACE_TOTAL - root.Size);
+long sizeOfSmallestDirToMakeEnoughSpace = int.MaxValue;
 foreach(var d in directories){
   var s = d.Size;
-  if(s <= 100000){
-    sizeOfSmallerDirectories += s;
+  if(s >= spaceToClear && s < sizeOfSmallestDirToMakeEnoughSpace){
+    sizeOfSmallestDirToMakeEnoughSpace = s;
   }
 }
 
-Console.WriteLine("Total size of directories smaller than 100000: " + sizeOfSmallerDirectories);
+Console.WriteLine("Total size: " + root.Size);
+Console.WriteLine("Space to clear: " + spaceToClear);
+Console.WriteLine("Size of smallest directory to make room: " + sizeOfSmallestDirToMakeEnoughSpace);
 
 FileSystemNode ParseLsLine(string line){
   if(line.StartsWith("dir")){

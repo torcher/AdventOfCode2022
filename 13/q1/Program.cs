@@ -8,10 +8,10 @@ while(!sr.EndOfStream){
   if(!sr.EndOfStream)
     _ = await sr.ReadLineAsync(); //Throw away extra line
   
-  var leftPacket = new Packets(leftLine);
-  var rightPacket = new Packets(rightLine);
+  var leftPacket = new Packet(leftLine);
+  var rightPacket = new Packet(rightLine);
 
-  var isRightOrder = Packets.Compare(leftPacket.Values, rightPacket.Values) > 0;
+  var isRightOrder = Packet.Compare(leftPacket.Values, rightPacket.Values) > 0;
   if(isRightOrder == true)
     correctOrderPairSum += pairIndex;
   pairIndex++;

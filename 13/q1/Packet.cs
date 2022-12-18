@@ -1,8 +1,7 @@
-using System.Linq;
-public class Packets{
+public class Packet{
   public List<object> Values { get; set; }
 
-  public Packets(string inline)
+  public Packet(string inline)
   {
     var charQueue = new Queue<char>();
     foreach(var c in inline.ToCharArray())
